@@ -12,10 +12,9 @@ namespace SocialNetwork.Core.Helpers.Result.Concrete
         {
             Data=data;
         }
-        public TResult Data => throw new NotImplementedException();
+        public TResult Data {get ;}
 
-        public bool Success => throw new NotImplementedException();
-
-        public string Message => throw new NotImplementedException();
+        public bool Success {get ;}
+        public string Message {get ;}
     }
 }
