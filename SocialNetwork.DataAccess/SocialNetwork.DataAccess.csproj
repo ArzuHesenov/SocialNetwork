@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SocialNetwork.Core\SocialNetwork.Core.csproj" />
+    <ProjectReference Include="..\SocialNetwork.Entities\SocialNetwork.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>
