@@ -15,6 +15,7 @@ namespace SocialNetwork.DataAccess.Concrete.EntityFramwork
         public DbSet<UserRole> UserRoles { get; set;}
         public DbSet<Post> Posts { get; set; }
         public DbSet<Reaction> Reactions { get; set; }
+        public DbSet<DisLike> DisLikes { get; set; }
         
     }
 }

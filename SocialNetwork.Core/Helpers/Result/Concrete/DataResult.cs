@@ -4,17 +4,16 @@ namespace SocialNetwork.Core.Helpers.Result.Concrete
 {
     public class DataResult<TResult> : Result, IDataResult<TResult>
     {
-        public DataResult(TResult data , bool success) : base(success)
+        public DataResult(TResult data, bool success) : base(success)
         {
-            Data=data;
+            Data = data;
         }
-        public DataResult(TResult data, bool success,string message) : base(success,message)
+        public DataResult(TResult data, bool success, string message) : base(success, message)
         {
-            Data=data;
+            Data = data;
         }
-        public TResult Data {get ;}
 
-        public bool Success {get ;}
-        public string Message {get ;}
+        public TResult Data { get; }
+
     }
 }

@@ -33,7 +33,7 @@ namespace SocialNetwork.Business.Concrete
                 var result= _userDal.Get(x=>x.Email == email);
                 return new SuccessDataResult<User>(result);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 
                 return new ErrorDataResult<User>(Messages.UserNotFound);
@@ -46,12 +46,15 @@ namespace SocialNetwork.Business.Concrete
             {
                 var findUserByEmail = GetUserByEmail(login.Email);
                 if(!findUserByEmail.Success)
-                return new SuccessResult(Messages.LoginError);
-
-                var checkPassword =HashingHelper.VerifyPassowrd(login.Password, findUserByEmail.Data.PasswordHash,findUserByEmail.Data.PasswordSalt);
-                if(!checkPassword)
-                
+                {
                     return new ErrorResult(Messages.LoginError);
+                }
+                var checkPassword =HashingHelper.VerifyPassword(login.Password, findUserByEmail.Data.PasswordHash,findUserByEmail.Data.PasswordSalt);
+                if (!checkPassword)
+                {
+                    return new ErrorResult(Messages.LoginError);
+
+                }
                 
                 string token=TokenGenerator.Token(findUserByEmail.Data,"User");
 

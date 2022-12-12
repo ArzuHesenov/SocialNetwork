@@ -10,7 +10,8 @@ namespace SocialNetwork.Entities.Concrete
          public string Content { get; set; }
          public bool IsDeleted { get; set; }
          public DateTime PublishDate { get; set; }
-         public ICollection<Reaction> Reactions { get; set; }
+         public virtual ICollection<Reaction> Reactions { get; set; }
+        public virtual ICollection<DisLike> DisLikes { get; set; }
     }
     
 }

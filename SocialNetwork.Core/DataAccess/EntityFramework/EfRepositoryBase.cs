@@ -32,12 +32,18 @@ namespace SocialNetwork.Core.DataAccess.EntityFramework
 
         public List<TEntity> GetAll(Expression<Func<TEntity, bool>>? filter = null)
         {
-            throw new NotImplementedException();
+            using var context=new TContext();
+            return filter == null
+                                ? context.Set<TEntity>().ToList()
+                                : context.Set<TEntity>().Where(filter).ToList();
         }
 
         public void Update(TEntity entity)
         {
-            throw new NotImplementedException();
+            using var context = new TContext();
+            var updateEntity = context.Update(entity);
+            updateEntity.State= EntityState.Modified;
+            context.SaveChanges();
         }
     }
 }
